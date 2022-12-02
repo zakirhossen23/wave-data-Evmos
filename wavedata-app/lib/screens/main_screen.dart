@@ -1318,15 +1318,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                                       fontWeight:
                                                           FontWeight.w700),
                                                 ),
-                                                Text("tEVMOS",
-                                                    style: GoogleFonts.getFont(
-                                                        'Lexend Deca',
-                                                        color:
-                                                            Color(0xFFF06129),
-                                                        fontSize: 20,
-                                                        fontWeight:
-                                                            FontWeight.w700)),
-                                                Text(
+                                               
+                                                Text("tEVMOS "+
                                                     ((userDetails['ongoingcredit'] !=
                                                                 null)
                                                             ? userDetails[
@@ -1337,7 +1330,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                                         'Lexend Deca',
                                                         color:
                                                             Color(0xFFF06129),
-                                                        fontSize: 20,
+                                                        fontSize: 13,
                                                         fontWeight:
                                                             FontWeight.w700))
                                               ],
