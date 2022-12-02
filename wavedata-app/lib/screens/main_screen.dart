@@ -1207,7 +1207,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.w700)),
                                           Text(
-                                              "tEVMOS " +
+                                              "TEVMOS " +
                                                   userDetails['credits']
                                                       .toString(),
                                               style: GoogleFonts.getFont(
@@ -1319,7 +1319,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                                           FontWeight.w700),
                                                 ),
                                                
-                                                Text("tEVMOS "+
+                                                Text("TEVMOS "+
                                                     ((userDetails['ongoingcredit'] !=
                                                                 null)
                                                             ? userDetails[
