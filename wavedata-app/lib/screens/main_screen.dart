@@ -487,13 +487,11 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                         margin: EdgeInsets.only(top: 12, left: 16, bottom: 4),
                         child: Row(
                           children: [
-                            const Text(
-                              "Ongoing trials",
-                              style: TextStyle(
-                                  color: Color(0xFF08323A),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600),
-                            ),
+                            Text("Ongoing trials",
+                                style: GoogleFonts.getFont('Lexend Deca',
+                                    color: Color(0xFF08323A),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600)),
                           ],
                         )),
                     Container(
@@ -519,14 +517,16 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                                       top: 8,
                                                       bottom: 8),
                                                   child: Text(
-                                                    ongoingTrials['title']
-                                                        .toString(),
-                                                    style: const TextStyle(
-                                                        color:
-                                                            Color(0xFFF06129),
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
+                                                      ongoingTrials['title']
+                                                          .toString(),
+                                                      style:
+                                                          GoogleFonts.getFont(
+                                                              'Lexend Deca',
+                                                              color: Color(
+                                                                  0xFFF06129),
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold)),
                                                 ),
                                                 Image.network(
                                                     ongoingTrials['image']
@@ -575,13 +575,11 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                         margin: EdgeInsets.only(top: 25, left: 16, bottom: 4),
                         child: Row(
                           children: [
-                            const Text(
-                              "Available trials",
-                              style: TextStyle(
-                                  color: Color(0xFF08323A),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600),
-                            ),
+                            Text("Available trials",
+                                style: GoogleFonts.getFont('Lexend Deca',
+                                    color: Color(0xFF08323A),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600)),
                           ],
                         )),
                     Container(
@@ -632,13 +630,12 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                           alignment: Alignment.bottomLeft,
                                           padding: EdgeInsets.only(
                                               left: 10, top: 10),
-                                          child: Text(
-                                            trial.title,
-                                            style: const TextStyle(
-                                                color: Color(0xFFF06129),
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w400),
-                                          ),
+                                          child: Text(trial.title,
+                                              style: GoogleFonts.getFont(
+                                                  'Lexend Deca',
+                                                  color: Color(0xFFF06129),
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400)),
                                         ),
                                       ],
                                     ),
@@ -778,13 +775,11 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                         ),
                         child: Container(
                           child: Center(
-                            child: Text(
-                              "Finish",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                            child: Text("Finish",
+                                style: GoogleFonts.getFont('Lexend Deca',
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold)),
                           ),
                         ),
                       ),
@@ -835,10 +830,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
               Container(
                   margin: EdgeInsets.only(left: 10, top: 26, bottom: 50),
                   height: 100,
-                  child: Text(
-                    "FHIR data",
-                    style: TextStyle(fontSize: 30),
-                  )),
+                  child: Text("FHIR data",
+                      style: GoogleFonts.getFont('Lexend Deca', fontSize: 30))),
               Positioned(
                 top: 25,
                 right: 30,
@@ -1178,11 +1171,9 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                 height: size.height - 60,
                 child: Stack(
                   children: [
-                    Positioned(
-                      top: 0,
+                    Container(
                       child: Container(
                         width: size.width,
-                        height: 360,
                         decoration: const BoxDecoration(
                           color: Colors.white,
                         ),
@@ -1210,65 +1201,65 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          const Text(
-                                            "Total build credits",
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w700),
-                                          ),
+                                          Text("Total build credits",
+                                              style: GoogleFonts.getFont(
+                                                  'Lexend Deca',
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w700)),
                                           Text(
-                                            "TRX " +
-                                                userDetails['credits']
-                                                    .toString(),
-                                            style: TextStyle(
-                                                color: Color(0xFFF06129),
-                                                fontSize: 34,
-                                                fontWeight: FontWeight.w700),
-                                          )
+                                              "tEVMOS " +
+                                                  userDetails['credits']
+                                                      .toString(),
+                                              style: GoogleFonts.getFont(
+                                                  'Lexend Deca',
+                                                  color: Color(0xFFF06129),
+                                                  fontSize: 25,
+                                                  fontWeight: FontWeight.w700))
                                         ],
                                       ),
                                       Container(
-                                        padding: const EdgeInsets.only(
-                                            left: 12,
-                                            right: 12,
-                                            top: 10,
-                                            bottom: 10),
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xFFF06129),
-                                          borderRadius:
-                                              BorderRadius.circular(4),
-                                        ),
-                                        child: const Text(
-                                          "Cash out",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      )
+                                          padding: const EdgeInsets.only(
+                                              left: 12,
+                                              right: 12,
+                                              top: 10,
+                                              bottom: 10),
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xFFF06129),
+                                            borderRadius:
+                                                BorderRadius.circular(4),
+                                          ),
+                                          child: Text("Cash out",
+                                              style: GoogleFonts.getFont(
+                                                  'Lexend Deca',
+                                                  color: Colors.white,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold)))
                                     ],
                                   ),
                                 ),
                               ),
                             ),
                             Container(
+                              width: size.width,
                               margin: EdgeInsets.only(
                                 top: 24,
                               ),
-                              child: Text(
-                                ongoingTrials['title'].toString(),
-                                style: const TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.w700),
-                              ),
+                              child: Text(ongoingTrials['title'].toString(),
+                                  style: GoogleFonts.getFont('Lexend Deca',
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w700)),
                             ),
-                            Row(
+                            Container(
+                              width: size.width,
+                              child:Row(   
+                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,                           
                               children: [
                                 Container(
                                   child: Container(
                                       margin:
                                           EdgeInsets.only(top: 120, right: 0),
-                                      height: 50,
-                                      width: 50,
+                                      height: size.width/ 8,
+                                      width: size.width/ 8,
                                       decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(128),
@@ -1279,9 +1270,9 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                 Container(
                                   child: Container(
                                       margin:
-                                          EdgeInsets.only(top: 30, right: 10),
-                                      height: 80,
-                                      width: 80,
+                                          EdgeInsets.only(top: 30),
+                                      height: size.width/ 5,
+                                      width: size.width/ 5,
                                       decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(128),
@@ -1319,27 +1310,36 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
-                                                const Text(
+                                                Text(
                                                   "Total credits",
-                                                  style: TextStyle(
+                                                  style: GoogleFonts.getFont(
+                                                      'Lexend Deca',
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.w700),
                                                 ),
+                                                Text("tEVMOS",
+                                                    style: GoogleFonts.getFont(
+                                                        'Lexend Deca',
+                                                        color:
+                                                            Color(0xFFF06129),
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.w700)),
                                                 Text(
-                                                  "TRX " +
-                                                      ((userDetails['ongoingcredit'] !=
-                                                                  null)
-                                                              ? userDetails[
-                                                                  'ongoingcredit']
-                                                              : 0)
-                                                          .toString(),
-                                                  style: TextStyle(
-                                                      color: Color(0xFFF06129),
-                                                      fontSize: 30,
-                                                      fontWeight:
-                                                          FontWeight.w700),
-                                                )
+                                                    ((userDetails['ongoingcredit'] !=
+                                                                null)
+                                                            ? userDetails[
+                                                                'ongoingcredit']
+                                                            : 0)
+                                                        .toString(),
+                                                    style: GoogleFonts.getFont(
+                                                        'Lexend Deca',
+                                                        color:
+                                                            Color(0xFFF06129),
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.w700))
                                               ],
                                             ),
                                           ),
@@ -1351,11 +1351,11 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                 Container(
                                   child: Container(
                                     clipBehavior: Clip.none,
-                                    margin: EdgeInsets.only(top: 30, left: 10),
+                                    margin: EdgeInsets.only(top: 30),
                                     child: Container(
                                         clipBehavior: Clip.hardEdge,
-                                        height: 80,
-                                        width: 80,
+                                        height: size.width/ 5,
+                                        width: size.width/ 5,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(128),
@@ -1375,8 +1375,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                   child: Container(
                                       margin:
                                           EdgeInsets.only(top: 120, right: 0),
-                                      height: 50,
-                                      width: 50,
+                                      height: size.width/ 8,
+                                      width: size.width/ 8,
                                       decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(128),
@@ -1385,126 +1385,154 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                       child: Text("")),
                                 ),
                               ],
+                            ),
+                            ),
+                           Expanded(
+                              child: Container(
+                                height: size.height,
+                                margin: EdgeInsets.only(top: 0),
+                                child: Stack(
+                                  children: [
+                                    SizedBox(
+                                      width: size.width,
+                                      child: Container(
+                                        padding: EdgeInsets.only(
+                                            top: 64, left: 20, right: 20),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.vertical(
+                                            top: Radius.elliptical(
+                                              size.width * 0.5,
+                                              25.0,
+                                            ),
+                                          ),
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: Image.asset(
+                                                    "assets/images/bg.png")
+                                                .image,
+                                          ),
+                                        ),
+                                        child: MasonryGridView.count(
+                                          crossAxisCount: 2,
+                                          crossAxisSpacing: 30,
+                                          mainAxisSpacing: 12,
+                                          itemCount: dummyOffers.length,
+                                          padding:
+                                              const EdgeInsets.only(bottom: 40),
+                                          itemBuilder: (context, index) {
+                                            return Container(
+                                              decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15)),
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Container(
+                                                          margin:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  top: 24,
+                                                                  bottom: 24),
+                                                          child: Image.asset(
+                                                              dummyOffers[index]
+                                                                  .image)),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                      padding: EdgeInsets.only(
+                                                          left: 12),
+                                                      margin: EdgeInsets.only(
+                                                          bottom: 12),
+                                                      child: Text(
+                                                          dummyOffers[index]
+                                                              .title,
+                                                          style: GoogleFonts
+                                                              .getFont(
+                                                                  'Lexend Deca',
+                                                                  fontSize: 14,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold))),
+                                                  Container(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 12,
+                                                            right: 12,
+                                                            bottom: 16),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                            dummyOffers[index]
+                                                                .store,
+                                                            style: GoogleFonts.getFont(
+                                                                'Lexend Deca',
+                                                                color: Color(
+                                                                    0xFF7CD1E3),
+                                                                fontSize: 14,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold)),
+                                                        Text(
+                                                            dummyOffers[index]
+                                                                .period,
+                                                            style: GoogleFonts.getFont(
+                                                                'Lexend Deca',
+                                                                color: Color(
+                                                                    0xFFA0A1A8),
+                                                                fontSize: 10,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold)),
+                                                      ],
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 24,
+                                      child: SizedBox(
+                                        width: size.width,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text("Extra credits",
+                                                style: GoogleFonts.getFont(
+                                                    'Lexend Deca',
+                                                    color: Color(0xFF08323A),
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             )
                           ],
                         ),
                       ),
                     ),
-                    Positioned(
-                      bottom: 0,
-                      child: Stack(
-                        children: [
-                          SizedBox(
-                            width: size.width,
-                            height: 500,
-                            child: Container(
-                              padding:
-                                  EdgeInsets.only(top: 64, left: 20, right: 20),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.vertical(
-                                  top: Radius.elliptical(
-                                    size.width * 0.5,
-                                    25.0,
-                                  ),
-                                ),
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image:
-                                      Image.asset("assets/images/bg.png").image,
-                                ),
-                              ),
-                              child: MasonryGridView.count(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 30,
-                                mainAxisSpacing: 12,
-                                itemCount: dummyOffers.length,
-                                padding: const EdgeInsets.only(bottom: 40),
-                                itemBuilder: (context, index) {
-                                  return Container(
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                                margin: const EdgeInsets.only(
-                                                    top: 24, bottom: 24),
-                                                child: Image.asset(
-                                                    dummyOffers[index].image)),
-                                          ],
-                                        ),
-                                        Container(
-                                            padding: EdgeInsets.only(left: 12),
-                                            margin: EdgeInsets.only(bottom: 12),
-                                            child: Text(
-                                                dummyOffers[index].title,
-                                                style: const TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.bold))),
-                                        Container(
-                                          padding: const EdgeInsets.only(
-                                              left: 12, right: 12, bottom: 16),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                dummyOffers[index].store,
-                                                style: const TextStyle(
-                                                    color: Color(0xFF7CD1E3),
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Text(
-                                                dummyOffers[index].period,
-                                                style: const TextStyle(
-                                                    color: Color(0xFFA0A1A8),
-                                                    fontSize: 10,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: 24,
-                            child: SizedBox(
-                              width: size.width,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    "Extra credits",
-                                    style: TextStyle(
-                                        color: Color(0xFF08323A),
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
                   ],
                 ),
               ),
@@ -1542,23 +1570,19 @@ class ActionTile extends StatelessWidget {
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  action.when.toUpperCase(),
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700),
-                ),
+                Text(action.when.toUpperCase(),
+                    style: GoogleFonts.getFont('Lexend Deca',
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700)),
                 const SizedBox(
                   height: 12,
                 ),
-                Text(
-                  action.content,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w400),
-                ),
+                Text(action.content,
+                    style: GoogleFonts.getFont('Lexend Deca',
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w400)),
                 const SizedBox(
                   height: 12,
                 ),
@@ -1571,13 +1595,11 @@ class ActionTile extends StatelessWidget {
                       const SizedBox(
                         width: 4,
                       ),
-                      const Text(
-                        "Completed",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold),
-                      )
+                      Text("Completed",
+                          style: GoogleFonts.getFont('Lexend Deca',
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold))
                     ],
                   )),
                 ),
@@ -1586,23 +1608,19 @@ class ActionTile extends StatelessWidget {
           : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "TODAY",
-                  style: TextStyle(
-                      color: Color(0xFFF06129),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700),
-                ),
+                Text("TODAY",
+                    style: GoogleFonts.getFont('Lexend Deca',
+                        color: Color(0xFFF06129),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700)),
                 const SizedBox(
                   height: 12,
                 ),
-                Text(
-                  action.content,
-                  style: const TextStyle(
-                      color: Color(0xFF08323A),
-                      fontSize: 13,
-                      fontWeight: FontWeight.w400),
-                ),
+                Text(action.content,
+                    style: GoogleFonts.getFont('Lexend Deca',
+                        color: Color(0xFF08323A),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w400)),
                 const SizedBox(
                   height: 12,
                 ),
@@ -1619,12 +1637,13 @@ class ActionTile extends StatelessWidget {
                       borderRadius: BorderRadius.circular(6),
                       color: Color(0xFFF06129),
                     ),
-                    child: const Center(
-                        child: Text("Start",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500))),
+                    child: Center(
+                      child: Text("Start",
+                          style: GoogleFonts.getFont('Lexend Deca',
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)),
+                    ),
                   ),
                 ),
               ],

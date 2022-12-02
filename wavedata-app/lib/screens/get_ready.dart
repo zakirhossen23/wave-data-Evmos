@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wavedata/screens/connect_data.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class GetReadyScreen extends StatelessWidget {
   const GetReadyScreen({Key? key}) : super(key: key);
@@ -32,10 +33,8 @@ class GetReadyScreen extends StatelessWidget {
                   margin: EdgeInsets.only(top: 24, left: 24, bottom: 24),
                   child: Text(
                     'Get ready to contribute.',
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600),
+                    style: 
+                     GoogleFonts.getFont('Lexend Deca',fontSize: 24,color: Colors.black,fontWeight: FontWeight.w600)
                   ),
                 ),
               ],
@@ -45,11 +44,8 @@ class GetReadyScreen extends StatelessWidget {
               margin: EdgeInsets.only(top: 24, left: 24, bottom: 24),
               child: Text(
                 'To contribute to medical trials please connect your medical data.',
-                style: TextStyle(
-                    fontSize: 16,
-                    color: Color(0xFF423838),
-                    letterSpacing: 0.5,
-                    fontWeight: FontWeight.w400),
+                style:
+                 GoogleFonts.getFont('Lexend Deca',  fontSize: 16,color: Color(0xFF423838),letterSpacing: 0.5,fontWeight: FontWeight.w400)
               ),
             ),
             Container(
@@ -75,7 +71,8 @@ class GetReadyScreen extends StatelessWidget {
                     child: Center(
                       child: Text(
                         "Connect my data",
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                        style: 
+                         GoogleFonts.getFont('Lexend Deca',  fontSize: 16, color: Colors.white)
                       ),
                     ),
                   ),

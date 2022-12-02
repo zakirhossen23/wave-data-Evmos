@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, non_constant_identifier_names, unnecessary_new, sized_box_for_whitespace, prefer_const_constructors
 
 import 'dart:convert';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -104,12 +105,10 @@ class ConnectDataApp extends State<ConnectDataScreen> {
                 //width: 400,
 
                 margin: const EdgeInsets.only(top: 24, left: 24, bottom: 24),
-                child: const Text(
+                child: Text(
                   'Connect your data.',
-                  style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600),
+                  style: GoogleFonts.getFont('Lexend Deca',  fontSize: 24,color: Colors.black,fontWeight: FontWeight.w600)
+                
                 ),
               ),
               Container(
@@ -138,15 +137,16 @@ class ConnectDataApp extends State<ConnectDataScreen> {
                             termsBool = val!;
                           });
                         }),
-                    const Text(
+                     Text(
                       "By sharing your data you agree to our ",
-                      style: TextStyle(
-                          color: Colors.grey, fontWeight: FontWeight.w700),
+                      style: 
+                      GoogleFonts.getFont('Lexend Deca',  color: Colors.grey, fontWeight: FontWeight.w700)
+                
                     ),
-                    const Text(
+                     Text(
                       "terms",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.w500),
+                      style:   GoogleFonts.getFont('Lexend Deca',  color: Colors.black, fontWeight: FontWeight.w500)
+                
                     )
                   ],
                 ),
@@ -182,8 +182,8 @@ class ConnectDataApp extends State<ConnectDataScreen> {
                               )
                             : Text(
                                 "Connect",
-                                style: TextStyle(
-                                    fontSize: 16, color: Colors.white),
+                                style:
+                                 GoogleFonts.getFont('Lexend Deca', fontSize: 16, color: Colors.white)
                               ),
                       ),
                     ),

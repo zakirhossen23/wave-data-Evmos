@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wavedata/providers/feeling_provider.dart';
 import 'package:wavedata/screens/connect_data.dart';
@@ -42,10 +43,9 @@ class FeelingScreen extends ConsumerWidget {
                       child: Text(
                         "How are you feeling right now?",
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color(0xFF423838),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700),
+                        style: 
+                          GoogleFonts.getFont('Lexend Deca',  color: Color(0xFF423838),fontSize: 24,fontWeight: FontWeight.w700)
+                   
                       ),
                     ),
                     SizedBox(
@@ -107,10 +107,7 @@ class FeelingScreen extends ConsumerWidget {
                       child: Text(
                         "Let's add your blood pressures?",
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color(0xFF423838),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700),
+                        style:   GoogleFonts.getFont('Lexend Deca',color: Color(0xFF423838),fontSize: 24,fontWeight: FontWeight.w700)
                       ),
                     ),
                     SizedBox(
@@ -132,10 +129,8 @@ class FeelingScreen extends ConsumerWidget {
                               children: [
                                 Text(
                                   "Top",
-                                  style: TextStyle(
-                                      color: Color(0xFF9B9B9B),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600),
+                                  style: 
+                                   GoogleFonts.getFont('Lexend Deca', color: Color(0xFF9B9B9B),fontSize: 14,fontWeight: FontWeight.w600)
                                 ),
                                 TextField(
                                   keyboardType: TextInputType.number,
@@ -151,10 +146,8 @@ class FeelingScreen extends ConsumerWidget {
                               children: [
                                 Text(
                                   "Bottom",
-                                  style: TextStyle(
-                                      color: Color(0xFF9B9B9B),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600),
+                                  style: 
+                                     GoogleFonts.getFont('Lexend Deca',color: Color(0xFF9B9B9B),fontSize: 14,fontWeight: FontWeight.w600)
                                 ),
                                 TextField(
                                   keyboardType: TextInputType.number,
@@ -180,10 +173,8 @@ class FeelingScreen extends ConsumerWidget {
                         },
                         child: Text(
                           "Skip",
-                          style: TextStyle(
-                              color: Color(0xFFF06129),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
+                          style: 
+                           GoogleFonts.getFont('Lexend Deca',color: Color(0xFFF06129),fontSize: 14,fontWeight: FontWeight.w400)
                         ))
                   ],
                 ),
@@ -197,10 +188,8 @@ class FeelingScreen extends ConsumerWidget {
                       child: Text(
                         "And your blood sugar level?",
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color(0xFF423838),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700),
+                        style: 
+                          GoogleFonts.getFont('Lexend Deca',  color: Color(0xFF423838),fontSize: 24,fontWeight: FontWeight.w700)
                       ),
                     ),
                     SizedBox(
@@ -243,10 +232,8 @@ class FeelingScreen extends ConsumerWidget {
                         },
                         child: Text(
                           "Skip",
-                          style: TextStyle(
-                              color: Color(0xFFF06129),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
+                          style:
+                            GoogleFonts.getFont('Lexend Deca',color: Color(0xFFF06129),fontSize: 14,fontWeight: FontWeight.w400)
                         ))
                   ],
                 ),
@@ -260,10 +247,8 @@ class FeelingScreen extends ConsumerWidget {
                       child: Text(
                         "Let's fill in some questions",
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color(0xFF423838),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700),
+                        style: 
+                        GoogleFonts.getFont('Lexend Deca', color: Color(0xFF423838),fontSize: 24,fontWeight: FontWeight.w700)
                       ),
                     ),
                     SizedBox(
@@ -294,8 +279,8 @@ class FeelingScreen extends ConsumerWidget {
                             child: Center(
                               child: Text(
                                 "Next",
-                                style: TextStyle(
-                                    fontSize: 16, color: Colors.white),
+                                style: 
+                                    GoogleFonts.getFont('Lexend Deca',   fontSize: 16, color: Colors.white)
                               ),
                             ),
                           ),

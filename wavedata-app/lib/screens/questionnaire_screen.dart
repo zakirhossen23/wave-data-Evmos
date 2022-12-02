@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -171,10 +172,9 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
                             child: Text(
                               e['category'],
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Color(0xFF423838),
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w700),
+                              style:
+                                 GoogleFonts.getFont('Lexend Deca',color: Color(0xFF423838), fontSize: 24, fontWeight: FontWeight.w700),
+                                    
                             ),
                           ),
                           Container(
@@ -195,11 +195,9 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
                             child: Text(
                               e['description'],
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Color(0xFF423838),
-                                  fontSize: 14,
-                                  letterSpacing: 0.82,
-                                  fontWeight: FontWeight.w400),
+                              style: 
+                              GoogleFonts.getFont('Lexend Deca', color: Color(0xFF423838), fontSize: 14, letterSpacing: 0.82, fontWeight: FontWeight.w400),
+                                    
                             ),
                           ),
                         ]),
@@ -245,8 +243,9 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
                               child: Center(
                                 child: Text(
                                   "Next",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.white),
+                                  style: 
+                                  GoogleFonts.getFont('Lexend Deca', fontSize: 16, color: Colors.white),
+                                    
                                 ),
                               ),
                             ),
@@ -276,10 +275,8 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
             padding: EdgeInsets.only(left: 64, right: 64),
             child: Text("Well done! You got your first plant",
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Color(0xFF423838),
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700)),
+                style: GoogleFonts.getFont('Lexend Deca',    color: Color(0xFF423838), fontSize: 24, fontWeight: FontWeight.w700),
+            )
           ),
           Container(
             width: 140,
@@ -377,10 +374,9 @@ class _QuestionWidget extends State<QuestionWidget> {
               child: Text(
                 question.id + ". " + question.content,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Color(0xFF423838),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700),
+                style:
+                GoogleFonts.getFont('Lexend Deca', color: Color(0xFF423838), fontSize: 16, fontWeight: FontWeight.w700),
+             
               ),
             ),
             Column(
@@ -516,10 +512,9 @@ class _QuestionWidget extends State<QuestionWidget> {
               child: Text(
                 question.id + ". " + question.content,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Color(0xFF423838),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700),
+                style: 
+                  GoogleFonts.getFont('Lexend Deca',color: Color(0xFF423838), fontSize: 16, fontWeight: FontWeight.w700),
+             
               ),
             ),
             Column(
@@ -607,10 +602,8 @@ class _QuestionWidget extends State<QuestionWidget> {
             child: Text(
               question.id + ". " + question.content,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Color(0xFF423838),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700),
+              style:
+               GoogleFonts.getFont('Lexend Deca', color: Color(0xFF423838), fontSize: 16, fontWeight: FontWeight.w700),
             ),
           ),
           Column(

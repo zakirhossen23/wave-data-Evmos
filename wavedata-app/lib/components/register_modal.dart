@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:html';
 
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -52,10 +53,10 @@ class RegisterApp extends State<RegisterModal> {
                 margin: EdgeInsets.only(top: 24, left: 24, bottom: 24),
                 child: Text(
                   'Register your account',
-                  style: TextStyle(
-                      fontSize: 24,
+                  style: GoogleFonts.getFont('Lexend Deca',
+                       fontSize: 24,
                       color: Colors.black,
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w600) 
                 ),
               ),
               Container(
@@ -116,9 +117,8 @@ class RegisterApp extends State<RegisterModal> {
                               )
                             : Text(
                                 "Register",
-                                style: TextStyle(
-                                    fontSize: 16, color: Colors.white),
-                              ),
+                                style: GoogleFonts.getFont('Lexend Deca',fontSize: 16, color: Colors.white)) 
+                              ,
                       ),
                     ),
                   ),

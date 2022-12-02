@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
@@ -44,8 +44,10 @@ class AuthScreenApp extends State<AuthScreen> {
   }
 
   Future<void> LoginAccount() async {
-    var url = Uri.parse('https://wavedata-api-evmos.netlify.app/api/POST/Login');
-    final response = await http.post(url,headers: POSTheader,
+    var url =
+        Uri.parse('https://wavedata-api-evmos.netlify.app/api/POST/Login');
+    final response = await http.post(url,
+        headers: POSTheader,
         body: {'email': emailTXT.text, 'password': passwordTXT.text});
     var responseData = json.decode(response.body);
     var data = (responseData['value']);
@@ -85,123 +87,124 @@ class AuthScreenApp extends State<AuthScreen> {
             image: Image.asset("assets/images/bg.png").image,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 180, left: 16, right: 16),
-                child: Material(
-                  elevation: 5,
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    height: size.height / 1.4,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 64, bottom: 32),
-                          child: SvgPicture.asset(
-                            "assets/images/Logo.svg",
-                          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Container(
+              margin: EdgeInsets.only(left: 16, right: 16, bottom: 64),
+              child: Material(
+                elevation: 5,
+                borderRadius: BorderRadius.circular(8),
+                child: Container(
+                  height: size.height / 1.4,
+                  constraints: const BoxConstraints(
+                    minHeight: 500,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 60, bottom: 30),
+                        child: SvgPicture.asset(
+                          "assets/images/Logo.svg",
                         ),
-                        Container(
-                          margin: EdgeInsets.only(left: 24, right: 24),
-                          child: DataEditItem(
-                              label: "Email", controller: emailTXT),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 24, right: 24),
-                          child: DataEditItem(
-                              label: "Password",
-                              isPassword: true,
-                              controller: passwordTXT),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 24, right: 24),
-                          child: GestureDetector(
-                            onTap: () async {
-                              if (isLoading) return;
-                              if (emailTXT.text == "" || passwordTXT.text == "")
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        content:
-                                            Text("Please fill all fields!")));
-                              setState(() => isLoading = true);
-                              await LoginAccount();
-                            },
-                            child: Material(
-                              borderRadius: BorderRadius.circular(8),
-                              elevation: 2,
-                              child: Container(
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: Color(0xFFF06129),
-                                ),
-                                child: Center(
-                                  child: isLoading
-                                      ? SizedBox(
-                                          child: CircularProgressIndicator(
-                                            color: Colors.white,
-                                          ),
-                                          height: 20.0,
-                                          width: 20.0,
-                                        )
-                                      : Text(
-                                          "Login",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.white),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 24, right: 24),
+                        child:
+                            DataEditItem(label: "Email", controller: emailTXT),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 24, right: 24),
+                        child: DataEditItem(
+                            label: "Password",
+                            isPassword: true,
+                            controller: passwordTXT),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 24, right: 24),
+                        child: GestureDetector(
+                          onTap: () async {
+                            if (isLoading) return;
+                            if (emailTXT.text == "" || passwordTXT.text == "")
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content:
+                                          Text("Please fill all fields!")));
+                            setState(() => isLoading = true);
+                            await LoginAccount();
+                          },
+                          child: Material(
+                            borderRadius: BorderRadius.circular(8),
+                            elevation: 2,
+                            child: Container(
+                              height: 40,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: Color(0xFFF06129),
+                              ),
+                              child: Center(
+                                child: isLoading
+                                    ? SizedBox(
+                                        child: CircularProgressIndicator(
+                                          color: Colors.white,
                                         ),
-                                ),
+                                        height: 20.0,
+                                        width: 20.0,
+                                      )
+                                    : Text("Login",
+                                        style: GoogleFonts.getFont(
+                                            'Lexend Deca',
+                                            fontSize: 16,
+                                            color: Colors.white)),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 24, right: 24),
-                          child: GestureDetector(
-                            onTap: () {
-                              FocusScope.of(context).unfocus();
-                              //showCupertinoModalBottomSheet(context: context, builder: builder)
-                              showCupertinoModalBottomSheet(
-                                context: context,
-                                builder: (context) => RegisterModal(),
-                              );
-                            },
-                            child: Material(
-                              borderRadius: BorderRadius.circular(8),
-                              child: Container(
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  border: Border.all(
-                                      width: 1.2, color: Color(0xFF6B7280)),
-                                  color: const Color(0xFFF3F4F6),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    "Register",
-                                    style: TextStyle(
-                                        fontSize: 16, color: Color(0xFF6B7280)),
-                                  ),
-                                ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 24, right: 24),
+                        child: GestureDetector(
+                          onTap: () {
+                            FocusScope.of(context).unfocus();
+                            //showCupertinoModalBottomSheet(context: context, builder: builder)
+                            showCupertinoModalBottomSheet(
+                              context: context,
+                              builder: (context) => RegisterModal(),
+                            );
+                          },
+                          child: Material(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Container(
+                              height: 40,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(
+                                    width: 1.2, color: Color(0xFF6B7280)),
+                                color: const Color(0xFFF3F4F6),
+                              ),
+                              child: Center(
+                                child: Text("Register",
+                                    style: GoogleFonts.getFont('Lexend Deca',
+                                        fontSize: 16,
+                                        color: Color(0xFF6B7280))),
                               ),
                             ),
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                      )
+                    ],
                   ),
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
