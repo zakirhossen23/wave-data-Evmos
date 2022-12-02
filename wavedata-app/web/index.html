@@ -87,7 +87,8 @@
         document.body.append(scriptTag);
       
         document.body.appendChild(loaderContainer);
-        loaderContainer.outerHTML = '<div class="loader-container"><div class="loader"></div></div>';
+        loaderContainer.outerHTML = '<div class="loader-container" style="width:'+ window.screen.width+'; height: '+window.screen.height+';"><div class="loader"></div></div>';
+
         let checker = setInterval(()=>{
           if (window.document.querySelectorAll('body[spellcheck="false"]').length > 0){
             document.querySelector('div[class="loader-container"]').classList.remove("loader-container");
