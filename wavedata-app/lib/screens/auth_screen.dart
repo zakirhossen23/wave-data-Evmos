@@ -44,7 +44,7 @@ class AuthScreenApp extends State<AuthScreen> {
   }
 
   Future<void> LoginAccount() async {
-    var url = Uri.parse('https://wave-data-api-tron.netlify.app/api/POST/Login');
+    var url = Uri.parse('https://wavedata-api-evmos.netlify.app/api/POST/Login');
     final response = await http.post(url,headers: POSTheader,
         body: {'email': emailTXT.text, 'password': passwordTXT.text});
     var responseData = json.decode(response.body);

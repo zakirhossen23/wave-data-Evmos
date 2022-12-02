@@ -36,7 +36,7 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
     allCategory = [];
 
     var url = Uri.parse(
-        'https://wave-data-api-tron.netlify.app/api/GET/Trial/Survey/GetSurveyDetails?surveyid=${surveyid}');
+        'https://wavedata-api-evmos.netlify.app/api/GET/Trial/Survey/GetSurveyDetails?surveyid=${surveyid}');
     final response = await http.get(url);
     var responseData = json.decode(response.body);
 
@@ -108,7 +108,7 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
       String questionid = itemQ.questionid;
       String answerTXT = itemQ.Answer;
       var url = Uri.parse(
-          'https://wave-data-api-tron.netlify.app/api/POST/Trial/Survey/CreateSurveyAnswers');
+          'https://wavedata-api-evmos.netlify.app/api/POST/Trial/Survey/CreateSurveyAnswers');
       await http.post(url, headers: POSTheader, body: {
         'trialid': trialid.toString(),
         'userid': userid.toString(),
@@ -133,7 +133,7 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
     int trialid = int.parse(allSections[0]['trialid']);
 
     var url = Uri.parse(
-        'https://wave-data-api-tron.netlify.app/api/POST/Trial/Survey/CreateCompletedSurvey');
+        'https://wavedata-api-evmos.netlify.app/api/POST/Trial/Survey/CreateCompletedSurvey');
     await http.post(url, headers: POSTheader, body: {
       'surveyid': surveyid.toString(),
       'userid': userid.toString(),
