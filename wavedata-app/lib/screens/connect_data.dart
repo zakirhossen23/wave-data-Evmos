@@ -36,7 +36,7 @@ class ConnectDataApp extends State<ConnectDataScreen> {
     final prefs = await SharedPreferences.getInstance();
     var userid = prefs.getString("userid");
     var url = Uri.parse(
-        'https://wavedata-api-evmos.netlify.app/api/POST/UpadateFhir');
+        'https://wave-data-evmos-api.onrender.com/api/POST/UpadateFhir');
     final response = await http.post(url, headers: POSTheader, body: {
       'userid': userid,
       'givenname': GivenNameTXT.text,
@@ -63,7 +63,7 @@ class ConnectDataApp extends State<ConnectDataScreen> {
   Future<void> GetData() async {
     final prefs = await SharedPreferences.getInstance();
     var userid = prefs.getString("userid");
-   var url = Uri.parse('https://wavedata-api-evmos.netlify.app/api/GET/getFhir?userid=${int.parse(userid.toString())}');
+   var url = Uri.parse('https://wave-data-evmos-api.onrender.com/api/GET/getFhir?userid=${int.parse(userid.toString())}');
    
     final response = await http.get(url);
     var responseData = json.decode(response.body);
