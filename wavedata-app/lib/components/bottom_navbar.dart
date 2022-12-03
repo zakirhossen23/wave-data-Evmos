@@ -63,7 +63,7 @@ class _WavedataNavbarState extends ConsumerState<WavedataNavbar> {
           ), */
           icon: SvgPicture.asset(
             "assets/images/mydata.svg",
-            width: 24,
+          
             color: viewmodel.selectedIndex == 2
                 ? Color(0xFFF06129)
                 : Color(0xFF6B7280),
