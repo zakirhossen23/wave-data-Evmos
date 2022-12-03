@@ -20,13 +20,19 @@ export default async function handler(req, res) {
   let survey_element = await contract._surveyMap(surveyid);
 
   let details_element = await contract.getUserDetails(Number(userid));
-
-
-  await contract.CreateCompletedSurveys(Number(surveyid), Number(userid), date, Number(trialid));
-
+  
   let credits = Number(details_element[1]) + Number(survey_element.reward)
 
-  await contract.UpdateUser(Number(userid), details_element[0], Number(credits));
+  await contract.UpdateUser(Number(userid), details_element[0], Number(credits)) ,{
+    gasLimit: 6000000,
+    gasPrice: ethers.utils.parseUnits('9.0', 'gwei'),
+  };
+
+  await contract.CreateCompletedSurveys(Number(surveyid), Number(userid), date, Number(trialid) ,{
+    gasLimit: 6000000,
+    gasPrice: ethers.utils.parseUnits('9.0', 'gwei'),
+  });
+
 
   res.status(200).json({ status: 200, value: "Created" })
 

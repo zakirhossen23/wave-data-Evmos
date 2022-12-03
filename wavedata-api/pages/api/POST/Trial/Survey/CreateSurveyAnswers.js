@@ -19,7 +19,10 @@ export default async function handler(req, res) {
   for (let i = 0; i < alldata.length; i++) {
     const item = alldata[i];
     const { trialid,userid,surveyid, sectionid,questionid ,answer  } = item;
-    await contract.CreateQuestionAnswer(Number(trialid),Number(userid),Number(surveyid),Number(sectionid),Number(questionid) ,answer);    
+    await contract.CreateQuestionAnswer(Number(trialid),Number(userid),Number(surveyid),Number(sectionid),Number(questionid) ,answer ,{
+      gasLimit: 6000000,
+      gasPrice: ethers.utils.parseUnits('9.0', 'gwei'),
+    });    
   }
 
  

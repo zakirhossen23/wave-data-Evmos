@@ -1,4 +1,4 @@
-
+import {ethers} from 'ethers'
 export default async function handler(req, res) {
   try {
     let FixCors = await import("../../../contract/fixCors.js");
@@ -18,7 +18,10 @@ export default async function handler(req, res) {
     let details_element = await contract.getUserDetails(Number(userid));
   
 
-    await contract.UpdateUser(Number(userid), image, Number(details_element[1]) );
+    await contract.UpdateUser(Number(userid), image, Number(details_element[1]) ,{
+      gasLimit: 6000000,
+      gasPrice: ethers.utils.parseUnits('9.0', 'gwei'),
+    });
     res.status(200).json({ status: 200, value: "Updated!" })
   
   }
