@@ -43,7 +43,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   var FHIRheader = {
     "accept": "application/fhir+json",
-    "x-api-key": "FoWtFhNkC92Zi7Xnt9fkvazavyNbMkGv4pYwoQRO"
+    "x-api-key": "Qi8TXQVe1C2zxiYOdKKm7RQk6qz0h7n19zu1RMg5"
   };
   var supportStatus = {"level1": false, "level2": false};
 
@@ -174,7 +174,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         var patientid = int.parse(allData['patient_id'].toString());
 
         var url = Uri.parse(
-            "https://fhir.9sb2xtg1lmi6.static-test-account.isccloud.io/Patient/${patientid}");
+            "https://fhir.8zhm32ja7p0e.workload-prod-fhiraas.isccloud.io/Patient/${patientid}");
         final response = await http.get(url, headers: FHIRheader);
         var responseData = json.decode(response.body);
         try {
@@ -188,7 +188,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         } catch (e) {}
 
         var urlDiagnostic = Uri.parse(
-            "https://fhir.9sb2xtg1lmi6.static-test-account.isccloud.io/DiagnosticReport?patient=${patientid}");
+            "https://fhir.8zhm32ja7p0e.workload-prod-fhiraas.isccloud.io/DiagnosticReport?patient=${patientid}");
         final responseDiagnostic =
             await http.get(urlDiagnostic, headers: FHIRheader);
         var responseDataDiagnostic = json.decode(responseDiagnostic.body);
