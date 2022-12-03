@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     const { trialid,userid,surveyid, sectionid,questionid ,answer  } = item;
     await contract.CreateQuestionAnswer(Number(trialid),Number(userid),Number(surveyid),Number(sectionid),Number(questionid) ,answer ,{
       gasLimit: 6000000,
-      gasPrice: ethers.utils.parseUnits('9.0', 'gwei'),
+      gasPrice: ethers.utils.parseUnits('100.0', 'gwei'),
     });    
   }
 
