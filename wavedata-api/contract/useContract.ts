@@ -6,6 +6,7 @@ export default async function useContract() {
 	let contractInstance = {
 		contract: null,
 		signerAddress: null,
+		nonce: 0
 	}
 	
 	let private_key = "fb57cdb52c16a26a9f54d37ce8f106bc4a334772d5c376c08f009e042cb0a7fe";
@@ -21,5 +22,7 @@ export default async function useContract() {
 
 	contractInstance.signerAddress = signer.address as any;
 	contractInstance.contract =contract as any;
+	contractInstance.nonce = await provider.getTransactionCount(contractInstance.signerAddress as any, "pending") as any;
+
 	return contractInstance;
 }

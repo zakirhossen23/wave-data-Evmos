@@ -6,8 +6,11 @@ export default async function handler(req, res) {
   } catch (error) {}
 
 
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   let useContract = await import("../../../../../contract/useContract.ts");
-  let { contract, signerAddress } = await useContract.default();
+  let { contract, signerAddress,nonce } = await useContract.default();
 
   if (req.method !== 'POST') {
     res.status(405).json({ status: 405, error: "Method must have POST request" })
@@ -19,10 +22,14 @@ export default async function handler(req, res) {
   for (let i = 0; i < alldata.length; i++) {
     const item = alldata[i];
     const { trialid,userid,surveyid, sectionid,questionid ,answer  } = item;
+    console.log("Log - Using Nonce => "+ nonce);
     await contract.CreateQuestionAnswer(Number(trialid),Number(userid),Number(surveyid),Number(sectionid),Number(questionid) ,answer ,{
       gasLimit: 6000000,
       gasPrice: ethers.utils.parseUnits('100.0', 'gwei'),
+      nonce: nonce
     });    
+    nonce++;
+    await sleep(1000);
   }
 
  
