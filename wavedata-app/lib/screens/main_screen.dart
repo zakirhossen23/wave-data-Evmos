@@ -295,7 +295,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
       await http.post(url,
           headers: POSTheader,
           body: {'trialid': trialid.toString(), 'userid': userid.toString()});
-
+      await Future.delayed(Duration(seconds: 2));
       Navigator.pop(context);
     }
 
@@ -324,7 +324,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         'userid': userid.toString(),
         'image': _textFieldController.text
       });
-
+      Navigator.pop(context);
     }
 
     imagePickerOption(BuildContext context) async {
