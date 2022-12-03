@@ -60,7 +60,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
   Future<void> GetAvialbleData() async {
     avilableTrials = [];
     var url = Uri.parse(
-        'https://wave-data-api-tron.netlify.app/api/GET/Trial/GetAvailableTrial?userid=${userid}');
+        'https://wavedata-api-evmos.netlify.app/api/GET/Trial/GetAvailableTrial?userid=${userid}');
     final response = await http.get(url);
     var responseData = json.decode(response.body);
 
@@ -88,7 +88,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     };
     dummyActions = [];
     var url = Uri.parse(
-        'https://wave-data-api-tron.netlify.app/api/GET/Trial/GetOngoingTrial?userid=${userid}');
+        'https://wavedata-api-evmos.netlify.app/api/GET/Trial/GetOngoingTrial?userid=${userid}');
     final response = await http.get(url);
     var responseData = json.decode(response.body);
 
@@ -148,7 +148,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   Future<void> GetFHIRData(int userid) async {
     var url = Uri.parse(
-        'https://wave-data-api-tron.netlify.app/api/GET/getUserDetails?userid=${userid}');
+        'https://wavedata-api-evmos.netlify.app/api/GET/getUserDetails?userid=${userid}');
     final response = await http.get(url);
     var responseData = json.decode(response.body);
 
@@ -161,7 +161,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     });
 
     var urlFH = Uri.parse(
-        'https://wave-data-api-tron.netlify.app/api/GET/getFhir?userid=${int.parse(userid.toString())}');
+        'https://wavedata-api-evmos.netlify.app/api/GET/getFhir?userid=${int.parse(userid.toString())}');
     final responseFH = await http.get(urlFH);
     var responseDataFH = json.decode(responseFH.body);
 
@@ -291,7 +291,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
       int userid = int.parse(prefs.getString("userid").toString());
 
       var url =
-          Uri.parse('https://wave-data-api-tron.netlify.app/api/POST/Trial/CreateOngoingTrail');
+          Uri.parse('https://wavedata-api-evmos.netlify.app/api/POST/Trial/CreateOngoingTrail');
       await http.post(url,
           headers: POSTheader,
           body: {'trialid': trialid.toString(), 'userid': userid.toString()});
@@ -319,7 +319,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
       });
       final prefs = await SharedPreferences.getInstance();
       int userid = int.parse(prefs.getString("userid").toString());
-      var url = Uri.parse('https://wave-data-api-tron.netlify.app/api/POST/UpadateImage');
+      var url = Uri.parse('https://wavedata-api-evmos.netlify.app/api/POST/UpadateImage');
       await http.post(url, headers: POSTheader, body: {
         'userid': userid.toString(),
         'image': _textFieldController.text
@@ -1244,7 +1244,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                                 top: 24,
                               ),
                               child: Text(ongoingTrials['title'].toString(),
-                              textAlign: TextAlign.center,
+                              textAlign: TextAlign.center
+                              ,
                                   style: GoogleFonts.getFont('Lexend Deca',
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700)),
