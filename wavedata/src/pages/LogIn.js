@@ -42,8 +42,8 @@ function Login() {
                            chainId: '0x2328', //9000
                            chainName: 'Evmos Testnet',
                            nativeCurrency: {
-                              name: 'tEVMOS',
-                              symbol: 'tEVMOS',
+                              name: 'TEVMOS',
+                              symbol: 'TEVMOS',
                               decimals: 18,
                            },
                            rpcUrls: ['https://eth.bd.evmos.dev:8545'],

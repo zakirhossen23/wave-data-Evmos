@@ -102,8 +102,8 @@ function Trials() {
                         <div className="flex items-center ml-6">
                            <CurrencyDollarIcon className="w-5 h-5 text-gray-500" />
                            {(screenSize.dynamicWidth > 760) ? (<>
-                           <p className="text-gray-500 font-semibold ml-1">{`Budget of tEVMOS ${budget}`}</p></>) :
-                     (<><p className="text-gray-500 font-semibold ml-1">{`tEVMOS ${budget}`}</p></>)}
+                           <p className="text-gray-500 font-semibold ml-1">{`Budget of TEVMOS ${budget}`}</p></>) :
+                     (<><p className="text-gray-500 font-semibold ml-1">{`TEVMOS ${budget}`}</p></>)}
                         </div>
                      </div>
                   </div>
