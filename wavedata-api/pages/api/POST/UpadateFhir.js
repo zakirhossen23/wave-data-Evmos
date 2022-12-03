@@ -1,16 +1,9 @@
 
 export default async function handler(req, res) {
-    res.setHeader('Access-Control-Allow-Credentials', true)
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    // another common pattern
-    // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-    )
-    
-
+  try {
+    let FixCors = await import("../../../contract/fixCors.js");
+    await FixCors.default(res);
+  } catch (error) {}
 
     let useContract = await import("../../../contract/useContract.ts");
     let { contract, signerAddress } = await useContract.default();
@@ -23,7 +16,7 @@ export default async function handler(req, res) {
     const { userid, givenname,identifier, patientid } = req.body;
  
     await contract.UpdateFhir(Number(userid), givenname,identifier, patientid );
-    res.status(200).json({ status: 200, value: "Updated!" })
+    res.status(200).json({ status: 200, value: "Updating!" })
   
   }
   

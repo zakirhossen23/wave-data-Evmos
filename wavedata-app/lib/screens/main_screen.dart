@@ -60,7 +60,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
   Future<void> GetAvialbleData() async {
     avilableTrials = [];
     var url = Uri.parse(
-        'https://wavedata-api-evmos.netlify.app/api/GET/Trial/GetAvailableTrial?userid=${userid}');
+        'https://wave-data-api-tron.netlify.app/api/GET/Trial/GetAvailableTrial?userid=${userid}');
     final response = await http.get(url);
     var responseData = json.decode(response.body);
 
@@ -88,7 +88,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     };
     dummyActions = [];
     var url = Uri.parse(
-        'https://wavedata-api-evmos.netlify.app/api/GET/Trial/GetOngoingTrial?userid=${userid}');
+        'https://wave-data-api-tron.netlify.app/api/GET/Trial/GetOngoingTrial?userid=${userid}');
     final response = await http.get(url);
     var responseData = json.decode(response.body);
 
@@ -148,7 +148,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   Future<void> GetFHIRData(int userid) async {
     var url = Uri.parse(
-        'https://wavedata-api-evmos.netlify.app/api/GET/getUserDetails?userid=${userid}');
+        'https://wave-data-api-tron.netlify.app/api/GET/getUserDetails?userid=${userid}');
     final response = await http.get(url);
     var responseData = json.decode(response.body);
 
@@ -161,7 +161,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     });
 
     var urlFH = Uri.parse(
-        'https://wavedata-api-evmos.netlify.app/api/GET/getFhir?userid=${int.parse(userid.toString())}');
+        'https://wave-data-api-tron.netlify.app/api/GET/getFhir?userid=${int.parse(userid.toString())}');
     final responseFH = await http.get(urlFH);
     var responseDataFH = json.decode(responseFH.body);
 
@@ -290,8 +290,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
       final prefs = await SharedPreferences.getInstance();
       int userid = int.parse(prefs.getString("userid").toString());
 
-      var url = Uri.parse(
-          'https://wavedata-api-evmos.netlify.app/api/POST/Trial/CreateOngoingTrail');
+      var url =
+          Uri.parse('https://wave-data-api-tron.netlify.app/api/POST/Trial/CreateOngoingTrail');
       await http.post(url,
           headers: POSTheader,
           body: {'trialid': trialid.toString(), 'userid': userid.toString()});
@@ -319,14 +319,12 @@ class _MainScreenState extends ConsumerState<MainScreen> {
       });
       final prefs = await SharedPreferences.getInstance();
       int userid = int.parse(prefs.getString("userid").toString());
-      var url = Uri.parse(
-          'https://wavedata-api-evmos.netlify.app/api/POST/UpadateImage');
+      var url = Uri.parse('https://wave-data-api-tron.netlify.app/api/POST/UpadateImage');
       await http.post(url, headers: POSTheader, body: {
         'userid': userid.toString(),
         'image': _textFieldController.text
       });
 
-      Navigator.of(context).pop();
     }
 
     imagePickerOption(BuildContext context) async {
@@ -1240,147 +1238,154 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                               ),
                             ),
                             Container(
+                              
                               width: size.width,
                               margin: EdgeInsets.only(
                                 top: 24,
                               ),
                               child: Text(ongoingTrials['title'].toString(),
+                              textAlign: TextAlign.center,
                                   style: GoogleFonts.getFont('Lexend Deca',
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700)),
                             ),
                             Container(
                               width: size.width,
-                              child:Row(   
-                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,                           
-                              children: [
-                                Container(
-                                  child: Container(
-                                      margin:
-                                          EdgeInsets.only(top: 120, right: 0),
-                                      height: size.width/ 8,
-                                      width: size.width/ 8,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(128),
-                                        color: Color.fromRGBO(124, 209, 227, 1),
-                                      ),
-                                      child: Text("")),
-                                ),
-                                Container(
-                                  child: Container(
-                                      margin:
-                                          EdgeInsets.only(top: 30),
-                                      height: size.width/ 5,
-                                      width: size.width/ 5,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(128),
-                                        color: Color.fromRGBO(124, 209, 227, 1),
-                                      ),
-                                      child: Text("")),
-                                ),
-                                Column(
-                                  children: [
-                                    CircularPercentIndicator(
-                                      radius: 58.0,
-                                      lineWidth: 8.0,
-                                      percent: userDetails[
-                                                      'totalongoingcredit'] ==
-                                                  null ||
-                                              userDetails['ongoingcredit'] ==
-                                                  null
-                                          ? 0
-                                          : percentagecompleted(),
-                                      circularStrokeCap:
-                                          CircularStrokeCap.round,
-                                      progressColor: Color(0xFFf06129),
-                                      backgroundColor: Color(0xFF7CD1E3),
-                                      center: SizedBox(
-                                        width: 550,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(128),
-                                          ),
-                                          child: Container(
-                                            margin: EdgeInsets.only(top: 8),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  "Total credits",
-                                                  style: GoogleFonts.getFont(
-                                                      'Lexend Deca',
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.w700),
-                                                ),
-                                               
-                                                Text("TEVMOS "+
-                                                    ((userDetails['ongoingcredit'] !=
-                                                                null)
-                                                            ? userDetails[
-                                                                'ongoingcredit']
-                                                            : 0)
-                                                        .toString(),
-                                                    style: GoogleFonts.getFont(
-                                                        'Lexend Deca',
-                                                        color:
-                                                            Color(0xFFF06129),
-                                                        fontSize: 13,
-                                                        fontWeight:
-                                                            FontWeight.w700))
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  child: Container(
-                                    clipBehavior: Clip.none,
-                                    margin: EdgeInsets.only(top: 30),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Container(
                                     child: Container(
-                                        clipBehavior: Clip.hardEdge,
-                                        height: size.width/ 5,
-                                        width: size.width/ 5,
+                                        margin:
+                                            EdgeInsets.only(top: 120, right: 0),
+                                        height: size.width / 8,
+                                        width: size.width / 8,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(128),
                                           color:
                                               Color.fromRGBO(124, 209, 227, 1),
                                         ),
-                                        child: ongoingTrials['image'] != ""
-                                            ? Image.network(
-                                                ongoingTrials['image']
-                                                    .toString(),
-                                                fit: BoxFit.cover,
-                                              )
-                                            : Text("")),
+                                        child: Text("")),
                                   ),
-                                ),
-                                Container(
-                                  child: Container(
-                                      margin:
-                                          EdgeInsets.only(top: 120, right: 0),
-                                      height: size.width/ 8,
-                                      width: size.width/ 8,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(128),
-                                        color: Color.fromRGBO(124, 209, 227, 1),
+                                  Container(
+                                    child: Container(
+                                        margin: EdgeInsets.only(top: 30),
+                                        height: size.width / 5,
+                                        width: size.width / 5,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(128),
+                                          color:
+                                              Color.fromRGBO(124, 209, 227, 1),
+                                        ),
+                                        child: Text("")),
+                                  ),
+                                  Column(
+                                    children: [
+                                      CircularPercentIndicator(
+                                        radius: 58.0,
+                                        lineWidth: 8.0,
+                                        percent: userDetails[
+                                                        'totalongoingcredit'] ==
+                                                    null ||
+                                                userDetails['ongoingcredit'] ==
+                                                    null
+                                            ? 0
+                                            : percentagecompleted(),
+                                        circularStrokeCap:
+                                            CircularStrokeCap.round,
+                                        progressColor: Color(0xFFf06129),
+                                        backgroundColor: Color(0xFF7CD1E3),
+                                        center: SizedBox(
+                                          width: 550,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(128),
+                                            ),
+                                            child: Container(
+                                              margin: EdgeInsets.only(top: 8),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    "Total credits",
+                                                    style: GoogleFonts.getFont(
+                                                        'Lexend Deca',
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w700),
+                                                  ),
+                                                  Text(
+                                                      "TEVMOS " +
+                                                          ((userDetails['ongoingcredit'] !=
+                                                                      null)
+                                                                  ? userDetails[
+                                                                      'ongoingcredit']
+                                                                  : 0)
+                                                              .toString(),
+                                                      style:
+                                                          GoogleFonts.getFont(
+                                                              'Lexend Deca',
+                                                              color: Color(
+                                                                  0xFFF06129),
+                                                              fontSize: 13,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700))
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                      child: Text("")),
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                  Container(
+                                    child: Container(
+                                      clipBehavior: Clip.none,
+                                      margin: EdgeInsets.only(top: 30),
+                                      child: Container(
+                                          clipBehavior: Clip.hardEdge,
+                                          height: size.width / 5,
+                                          width: size.width / 5,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(128),
+                                            color: Color.fromRGBO(
+                                                124, 209, 227, 1),
+                                          ),
+                                          child: ongoingTrials['image'] != ""
+                                              ? Image.network(
+                                                  ongoingTrials['image']
+                                                      .toString(),
+                                                  fit: BoxFit.cover,
+                                                )
+                                              : Text("")),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Container(
+                                        margin:
+                                            EdgeInsets.only(top: 120, right: 0),
+                                        height: size.width / 8,
+                                        width: size.width / 8,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(128),
+                                          color:
+                                              Color.fromRGBO(124, 209, 227, 1),
+                                        ),
+                                        child: Text("")),
+                                  ),
+                                ],
+                              ),
                             ),
-                            ),
-                           Expanded(
+                            Expanded(
                               child: Container(
                                 height: size.height,
                                 margin: EdgeInsets.only(top: 0),

@@ -37,7 +37,7 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
     allCategory = [];
 
     var url = Uri.parse(
-        'https://wavedata-api-evmos.netlify.app/api/GET/Trial/Survey/GetSurveyDetails?surveyid=${surveyid}');
+        'https://wave-data-api-tron.netlify.app/api/GET/Trial/Survey/GetSurveyDetails?surveyid=${surveyid}');
     final response = await http.get(url);
     var responseData = json.decode(response.body);
 
@@ -105,12 +105,11 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
 
     int trialid = int.parse(item['trialid']);
     var sectionid = item['sectionid'];
+    var data = [];
     for (var itemQ in item['questions']) {
       String questionid = itemQ.questionid;
       String answerTXT = itemQ.Answer;
-      var url = Uri.parse(
-          'https://wavedata-api-evmos.netlify.app/api/POST/Trial/Survey/CreateSurveyAnswers');
-      await http.post(url, headers: POSTheader, body: {
+      data.add({
         'trialid': trialid.toString(),
         'userid': userid.toString(),
         'surveyid': surveyid.toString(),
@@ -119,6 +118,9 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
         'answer': answerTXT
       });
     }
+    var url = Uri.parse(
+        'https://wave-data-api-tron.netlify.app/api/POST/Trial/Survey/CreateSurveyAnswers');
+    await http.post(url, headers: POSTheader, body: json.encode(data));
     setState(() {
       isloading = false;
     });
@@ -134,12 +136,16 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
     int trialid = int.parse(allSections[0]['trialid']);
 
     var url = Uri.parse(
-        'https://wavedata-api-evmos.netlify.app/api/POST/Trial/Survey/CreateCompletedSurvey');
+        'https://wave-data-api-tron.netlify.app/api/POST/Trial/Survey/CreateCompletedSurvey');
     await http.post(url, headers: POSTheader, body: {
       'surveyid': surveyid.toString(),
       'userid': userid.toString(),
       'date': DateTime.now().toIso8601String(),
       'trialid': trialid.toString()
+    });
+
+    Future.delayed(const Duration(milliseconds: 1500), () async {
+      Navigator.of(context).pop();
     });
     setState(() {
       isloading = false;
@@ -172,9 +178,10 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
                             child: Text(
                               e['category'],
                               textAlign: TextAlign.center,
-                              style:
-                                 GoogleFonts.getFont('Lexend Deca',color: Color(0xFF423838), fontSize: 24, fontWeight: FontWeight.w700),
-                                    
+                              style: GoogleFonts.getFont('Lexend Deca',
+                                  color: Color(0xFF423838),
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w700),
                             ),
                           ),
                           Container(
@@ -195,9 +202,11 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
                             child: Text(
                               e['description'],
                               textAlign: TextAlign.center,
-                              style: 
-                              GoogleFonts.getFont('Lexend Deca', color: Color(0xFF423838), fontSize: 14, letterSpacing: 0.82, fontWeight: FontWeight.w400),
-                                    
+                              style: GoogleFonts.getFont('Lexend Deca',
+                                  color: Color(0xFF423838),
+                                  fontSize: 14,
+                                  letterSpacing: 0.82,
+                                  fontWeight: FontWeight.w400),
                             ),
                           ),
                         ]),
@@ -243,9 +252,8 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
                               child: Center(
                                 child: Text(
                                   "Next",
-                                  style: 
-                                  GoogleFonts.getFont('Lexend Deca', fontSize: 16, color: Colors.white),
-                                    
+                                  style: GoogleFonts.getFont('Lexend Deca',
+                                      fontSize: 16, color: Colors.white),
                                 ),
                               ),
                             ),
@@ -272,12 +280,15 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 64, right: 64),
-            child: Text("Well done! You got your first plant",
+              padding: EdgeInsets.only(left: 64, right: 64),
+              child: Text(
+                "Well done! You got your first plant",
                 textAlign: TextAlign.center,
-                style: GoogleFonts.getFont('Lexend Deca',    color: Color(0xFF423838), fontSize: 24, fontWeight: FontWeight.w700),
-            )
-          ),
+                style: GoogleFonts.getFont('Lexend Deca',
+                    color: Color(0xFF423838),
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700),
+              )),
           Container(
             width: 140,
             margin: EdgeInsets.only(top: 24, bottom: 24),
@@ -374,9 +385,10 @@ class _QuestionWidget extends State<QuestionWidget> {
               child: Text(
                 question.id + ". " + question.content,
                 textAlign: TextAlign.center,
-                style:
-                GoogleFonts.getFont('Lexend Deca', color: Color(0xFF423838), fontSize: 16, fontWeight: FontWeight.w700),
-             
+                style: GoogleFonts.getFont('Lexend Deca',
+                    color: Color(0xFF423838),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700),
               ),
             ),
             Column(
@@ -512,9 +524,10 @@ class _QuestionWidget extends State<QuestionWidget> {
               child: Text(
                 question.id + ". " + question.content,
                 textAlign: TextAlign.center,
-                style: 
-                  GoogleFonts.getFont('Lexend Deca',color: Color(0xFF423838), fontSize: 16, fontWeight: FontWeight.w700),
-             
+                style: GoogleFonts.getFont('Lexend Deca',
+                    color: Color(0xFF423838),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700),
               ),
             ),
             Column(
@@ -602,8 +615,10 @@ class _QuestionWidget extends State<QuestionWidget> {
             child: Text(
               question.id + ". " + question.content,
               textAlign: TextAlign.center,
-              style:
-               GoogleFonts.getFont('Lexend Deca', color: Color(0xFF423838), fontSize: 16, fontWeight: FontWeight.w700),
+              style: GoogleFonts.getFont('Lexend Deca',
+                  color: Color(0xFF423838),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700),
             ),
           ),
           Column(

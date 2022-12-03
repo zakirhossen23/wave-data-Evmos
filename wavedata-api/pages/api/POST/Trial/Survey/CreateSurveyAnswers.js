@@ -1,13 +1,9 @@
-
+import { ethers } from 'ethers';
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Credentials', true)
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  )
-
+  try {
+    let FixCors = await import("../../../../../contract/fixCors.js");
+    await FixCors.default(res);
+  } catch (error) {}
 
 
   let useContract = await import("../../../../../contract/useContract.ts");
@@ -17,10 +13,16 @@ export default async function handler(req, res) {
     res.status(405).json({ status: 405, error: "Method must have POST request" })
     return;
   }
+  const data =Object.keys(req.body)[0];
+  let alldata = JSON.parse(data);
+  
+  for (let i = 0; i < alldata.length; i++) {
+    const item = alldata[i];
+    const { trialid,userid,surveyid, sectionid,questionid ,answer  } = item;
+    await contract.CreateQuestionAnswer(Number(trialid),Number(userid),Number(surveyid),Number(sectionid),Number(questionid) ,answer);    
+  }
 
-  const { trialid,userid,surveyid, sectionid,questionid ,answer  } = req.body;
-
-  await contract.CreateQuestionAnswer(Number(trialid),Number(userid),Number(surveyid),Number(sectionid),Number(questionid) ,answer);
+ 
   res.status(200).json({ status: 200, value: "Created" })
 
 }
